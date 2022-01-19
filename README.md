@@ -1,1 +1,1 @@
-# yttomp3_extension
+# Chrome extension to convert YouTube videos to MP3
