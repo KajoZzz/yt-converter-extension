@@ -1,15 +1,19 @@
+let bg;
+
 document.addEventListener('DOMContentLoaded', function () {
-    const bg = chrome.extension.getBackgroundPage()
-    const id = bg.videoID
-
-    document.title = id;
-
-    let div = document.createElement('div');
-    div.innerHTML = `
-        <iframe src="https://www.yt-download.org/api/button/mp3/${id}" width="100%" height="100px" scrolling="no" style="border:none;"></iframe>
-        <br>
-        <iframe src="https://www.yt-download.org/api/button/videos/${id}" width="100%" height="100px" scrolling="no" style="border:none;"></iframe>`;
-
-    document.body.appendChild(div);
-
+    bg = chrome.extension.getBackgroundPage()
 }, false)
+
+const convertBtn = document.querySelector('.convert-button');
+const URLinput = document.querySelector('.URL-input');
+const TYPEinput = document.querySelector('.TYPE-input');
+
+
+convertBtn.addEventListener('click', () => {
+    const url = bg.url
+    sendURL(url, TYPEinput.value);
+});
+
+function sendURL(URL, TYPE) {
+    window.location.href = `https://youtube-conv.herokuapp.com/download?URL=${URL}&TYPE=${TYPE}`;
+}
