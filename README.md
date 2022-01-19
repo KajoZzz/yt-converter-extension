@@ -18,4 +18,4 @@ Then select your desired audio quality.
 
 ## More
 
-The extension uses a third-party [API](https://yt-download.org/developers).
+The extension uses a third-party [API](https://github.com/matthew-asuncion/Fast-YouTube-to-MP3-Converter-API).
