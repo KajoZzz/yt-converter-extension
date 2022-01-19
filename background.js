@@ -1,5 +1,6 @@
+window.videoID = "";
+
 chrome.runtime.onStartup.addListener(function() {
-    alert('open');
     chrome.browserAction.setIcon({ path: "icon.png" });
 })
 
@@ -8,14 +9,19 @@ chrome.browserAction.onClicked.addListener(function (tab) {
         let url = tabs[0].url;
         if(url.includes("https://www.youtube.com/watch?v="))
         {
-            let id = url.substring(url.lastIndexOf('=') + 1);
+            let id = url.substring(url.lastIndexOf('?v=') + 3);
+            if(url.includes("&t=")){
+                id = id.slice(0, -(id.length - id.lastIndexOf('&t='))); 
+            }
+
+            window.videoID = id;
+
             chrome.windows.create({
-                url: `https://www.yt-download.org/api/button/mp3/${id}`,
+                url: `popup.html`,
                 focused: true,
-                incognito: true,
                 type: "popup",
                 width: 500,
-                height: 140
+                height: 260
             });
         }
     });
