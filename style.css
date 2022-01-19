@@ -1,6 +1,14 @@
 * {
   text-align: center;
 }
+body{
+  width: 400px;
+}
+body.dark{
+  background-color: #1d1d1d;
+  color: #575757;
+}
+
 .heading {
   font-family: Arial;
   margin-top: 40vh;
@@ -37,6 +45,9 @@
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
+}
+body.dark .select select{
+  background: #414141;
 }
 .select select::-ms-expand {
   display: none;
