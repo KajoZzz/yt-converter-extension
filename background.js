@@ -4,22 +4,15 @@ chrome.runtime.onStartup.addListener(function() {
     chrome.browserAction.setIcon({ path: "icon.png" });
 })
 
+
 chrome.contextMenus.create({
-    type: "radio",
-    title: "Bright theme",
-    checked: (window.localStorage.getItem("theme") === "bright"),
-    contexts: ["browser_action"],
-    onclick: function() {
-        window.localStorage.setItem("theme", "bright");
-    }
-});
-chrome.contextMenus.create({
-    type: "radio",
-    title: "Dark theme",
+    type: "checkbox",
+    title: "Dark mode",
     checked: (window.localStorage.getItem("theme") === "dark"),
     contexts: ["browser_action"],
-    onclick: function() {
-        window.localStorage.setItem("theme", "dark");
+    onclick: function(info) {
+        if(info.checked) window.localStorage.setItem("theme", "dark");
+        else window.localStorage.setItem("theme", "light")
     }
 });
 
