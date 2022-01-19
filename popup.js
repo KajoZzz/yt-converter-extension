@@ -3,8 +3,7 @@ let bg;
 document.addEventListener('DOMContentLoaded', function () {
     chrome.runtime.sendMessage({popupOpen: true});
     bg = chrome.extension.getBackgroundPage()
-
-    if(bg.localStorage.getItem("theme") === "bright"){
+    if(bg.localStorage.getItem("theme") === "light"){
         if(document.body.classList.contains("dark")) document.body.classList.remove("dark")
     }
     else {
