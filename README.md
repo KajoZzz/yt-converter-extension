@@ -3,7 +3,7 @@
 YouTube To MP3 by Kayo is a Chrome extension allowing you to convert YT videos to mp3 files
 
 ## Installation
-
+0. Turn on developer mode on your Chrome browser
 1. Download the repository as a .zip file
 2. Extract the files into a folder
 3. Go to your Chrome browser
