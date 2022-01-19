@@ -8,7 +8,7 @@ chrome.runtime.onStartup.addListener(function() {
 chrome.contextMenus.create({
     type: "checkbox",
     title: "Dark mode",
-    checked: (window.localStorage.getItem("theme") === "dark"),
+    checked: (window.localStorage.getItem("theme") == "dark"),
     contexts: ["browser_action"],
     onclick: function(info) {
         if(info.checked) window.localStorage.setItem("theme", "dark");
